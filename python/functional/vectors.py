@@ -26,3 +26,21 @@ def add(v1, v2):
         raise ValueError("Vectors must have the same dimension.")
 
     return [a + b for a, b in zip(v1, v2)]
+
+def scalar_multiply(scalar, vector):
+    """
+    Multiply a vector by a scalar.
+
+    Parameters
+    ----------
+    scalar : float
+        Scalar value.
+    vector : list[float]
+        Vector to multiply.
+
+    Returns
+    -------
+    list[float]
+        Scaled vector.
+    """
+    return [scalar * component for component in vector]
