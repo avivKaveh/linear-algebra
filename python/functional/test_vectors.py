@@ -1,4 +1,4 @@
-from vectors import add, scalar_multiply, dot
+from vectors import add, scalar_multiply, dot, norm
 
 # add tests.
 def test_add():
@@ -25,3 +25,16 @@ def test_dot_zero():
 
 def test_dot_negative():
     assert dot([-1, 2], [5, -2]) == -9
+
+
+# norm tests.
+def test_norm():
+    assert norm([3, 4]) == 5
+
+
+def test_norm_zero():
+    assert norm([0, 0]) == 0
+
+
+def test_norm_three_dimensions():
+    assert norm([1, 2, 2]) == 3

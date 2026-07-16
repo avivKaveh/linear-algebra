@@ -1,3 +1,4 @@
+import math
 """
 Vector operations.
 
@@ -5,7 +6,7 @@ This module contains implementations of basic vector operations
 used throughout the linear algebra package.
 """
 
-# addition of 2 vectors.
+# Vector addition.
 def add(v1, v2):
     """
     Return the sum of two vectors.
@@ -27,7 +28,7 @@ def add(v1, v2):
 
     return [a + b for a, b in zip(v1, v2)]
 
-# scalar multiplication of a vector.
+# Scalar multiplication.
 def scalar_multiply(scalar, vector):
     """
     Multiply a vector by a scalar.
@@ -46,7 +47,7 @@ def scalar_multiply(scalar, vector):
     """
     return [scalar * component for component in vector]
 
-# dot product of 2 vectors.
+# Dot product.
 def dot(v1, v2):
     """
     Return the dot product of two vectors.
@@ -67,3 +68,24 @@ def dot(v1, v2):
         raise ValueError("Vectors must have the same dimension.")
 
     return sum(a * b for a, b in zip(v1, v2))
+
+
+# Euclidean norm (magnitude) of a vector.
+def norm(vector):
+    """
+    Return the Euclidean norm of a vector.
+
+    The Euclidean norm is defined as the square root of the dot
+    product of the vector with itself.
+
+    Parameters
+    ----------
+    vector : list[float]
+        Input vector.
+
+    Returns
+    -------
+    float
+        The Euclidean norm of the vector.
+    """
+    return math.sqrt(dot(vector, vector))
