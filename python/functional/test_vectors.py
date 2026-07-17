@@ -1,5 +1,5 @@
 import pytest
-from vectors import add, scalar_multiply, dot, norm, normalize
+from vectors import add, scalar_multiply, dot, norm, normalize, distance
 
 # add tests.
 def test_add():
@@ -56,3 +56,16 @@ def test_normalize_zero_vector():
         assert False, "Expected ValueError to be raised."
     except ValueError:
         pass
+
+
+# distance tests.
+def test_distance():
+    assert distance([1, 2], [4, 6]) == 5
+
+
+def test_distance_same_vector():
+    assert distance([3, 4], [3, 4]) == 0
+
+
+def test_distance_three_dimensions():
+    assert distance([1, 2, 3], [4, 6, 3]) == 5

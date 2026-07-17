@@ -117,3 +117,26 @@ def normalize(vector):
         raise ValueError("Cannot normalize the zero vector.")
 
     return scalar_multiply(1 / norm(vector), vector)
+
+# Distance between two vectors.
+def distance(v1, v2):
+    """
+    Return the Euclidean distance between two vectors.
+
+    The distance is defined as the Euclidean norm of the
+    difference between the vectors.
+
+    Parameters
+    ----------
+    v1 : list[float]
+        First vector.
+    v2 : list[float]
+        Second vector.
+
+    Returns
+    -------
+    float
+        The Euclidean distance between the vectors.
+    """
+    difference = add(v1, scalar_multiply(-1, v2))
+    return norm(difference)
