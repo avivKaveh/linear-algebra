@@ -89,3 +89,31 @@ def norm(vector):
         The Euclidean norm of the vector.
     """
     return math.sqrt(dot(vector, vector))
+
+# Normalize a vector.
+def normalize(vector):
+    """
+    Return the normalized (unit) vector.
+
+    A normalized vector has the same direction as the input
+    vector but a magnitude of 1.
+
+    Parameters
+    ----------
+    vector : list[float]
+        Input vector.
+
+    Returns
+    -------
+    list[float]
+        The normalized vector.
+
+    Raises
+    ------
+    ValueError
+        If the input vector is the zero vector.
+    """
+    if norm(vector) == 0:
+        raise ValueError("Cannot normalize the zero vector.")
+
+    return scalar_multiply(1 / norm(vector), vector)

@@ -1,4 +1,5 @@
-from vectors import add, scalar_multiply, dot, norm
+import pytest
+from vectors import add, scalar_multiply, dot, norm, normalize
 
 # add tests.
 def test_add():
@@ -38,3 +39,20 @@ def test_norm_zero():
 
 def test_norm_three_dimensions():
     assert norm([1, 2, 2]) == 3
+
+
+# normalize tests.
+def test_normalize():
+    assert normalize([3, 4]) == pytest.approx([0.6, 0.8])
+
+
+def test_normalize_unit_vector():
+    assert normalize([1, 0]) == [1.0, 0.0]
+
+
+def test_normalize_zero_vector():
+    try:
+        normalize([0, 0])
+        assert False, "Expected ValueError to be raised."
+    except ValueError:
+        pass
